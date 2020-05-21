@@ -15,7 +15,8 @@ function ReportReckless() {
         initialValues:{
             "location":"",
             "numberPlate":"",
-            "road":""
+            "road":"",
+            "time":""
         },
         validationSchema,
         validateOnBlur:false,
@@ -79,6 +80,15 @@ function ReportReckless() {
                       name="road" className="form-control" placeholder="Enter road name" 
                       onChange={handleChange} values = {values.road}/>
                   </div>
+                  <div className="form-group">
+                    <label htmlFor="time">When did the this occur?</label>
+                    <select className="form-control" onChange={handleChange} values = {values.time} name="time" id="time">
+                        <option>less than 5 minutes ago</option>
+                        <option>less than 30 minutes ago</option>
+                        <option>less than 1hr ago</option>
+                    </select>
+                    <span className="error">{errors.time ? errors.time : null }</span>
+                </div>
 
 
                   <button type="submit" className="btn btn-primary btn-block">Report</button>
